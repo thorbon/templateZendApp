@@ -1,0 +1,111 @@
+<h3>Details By Client<?php echo (isset($this->clientName)) ? " ({$this->clientName})" : ''; ?></h3>
+<hr>
+<div>
+<table cellpadding="0" cellspacing="0" border="0" class="display table1" id="table1" width="100%">
+    <thead>
+        <tr>
+            <th>Client Name</th>
+            <th>Country Name</th>
+            <th>Ad Content</th>
+            <th>Distribution Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+
+<?php if (!empty($this->adClientList)): ?>
+    <?php foreach($this->adClientList as $ad): ?>
+        <tr class="odd">
+            <td><?php echo $ad['client_name'] ?></td>
+            <td><?php echo $ad['country_name'] ?></td>
+            <td><?php echo "<a href='".$this->baseUrl()."/web/ad/detailsbyad/aid/{$ad['ad_id']}/acontent/".urlencode($ad['ad_message'])."/'>".$ad['ad_message']."</a>" ?></td>
+            <td><?php echo $ad['ad_distribution'] ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+    </table>
+<?php else: ?>
+        <tr>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    </table>
+<?php endif; ?>
+</div>
+
+<div>
+<h5>Messages Per Day</h5>
+<table cellpadding="0" cellspacing="0" border="0" class="display table1" id="table1" width="100%">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+
+<?php if (!empty($this->statisticsDaily)): ?>
+    <?php foreach($this->statisticsDaily as $stats): ?>
+        <tr class="odd">
+            <td><?php echo "<a href='#'>".$stats['date']."</a>" ?></td>
+            <td><?php echo "<a href='#'>".$stats['day']."</a>" ?></td>
+            <td><?php echo $stats['amount'] ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+    </table>
+<?php else: ?>
+        <tr>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    </table>
+<?php endif; ?>
+</div>
+<div>
+<h5>Messages Per Month</h5>
+<table cellpadding="0" cellspacing="0" border="0" class="display table1" id="table1" width="100%">
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+
+<?php if (!empty($this->statisticsMonthly)): ?>
+    <?php foreach($this->statisticsMonthly as $mStats): ?>
+        <tr class="odd">
+            <td><?php echo "<a href='#'>".$mStats['month']."</a>" ?></td>
+            <td><?php echo "<a href='#'>".$mStats['year']."</a>" ?></td>
+            <td><?php echo $mStats['amount'] ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+    </table>
+<?php else: ?>
+        <tr>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    </table>
+<?php endif; ?>
+</div>
+
+<?php if(isset($this->errorMessage)): ?>
+    <h2><?php echo $this->errorMessage ?></h2>
+<?php endif; ?>

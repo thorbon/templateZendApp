@@ -1,0 +1,117 @@
+<?php
+//$this->addHelperPath('Zend/Dojo/View/Helper/', 'Zend_Dojo_View_Helper');
+//$this->dojo()->setLocalPath($this->baseUrl().'/public/js/dojo/dojo.js')->addStyleSheetModule('dijit.themes.tundra');
+
+    $this->borderContainer()->captureStart('masterLayout',
+                                       array('design' => 'headline'),
+                                       array('style' => 'width: 100%; height: 100%'));
+    
+    $this->contentPane()->captureStart('topPane',
+                                       array('region' => 'top', 'splitter' => false),
+                                       array('style' => 'height: 80px'));
+    
+    if (isset($this->headerInfo)) {
+        echo $this->headerInfo;
+    }
+    
+    echo $this->contentPane()->captureEnd('topPane');
+    
+    $this->contentPane()->captureStart('leftPane',
+                                       array('region' => 'left', 'splitter' => true),
+                                       array('style' => 'width: 200px'));
+    
+    $this->accordionContainer()->captureStart('main-menu',
+                                      array('design' => 'headline', 'persist'=>'true'),
+                                      array(
+                                              'style'=>'height:400px'
+                                       ));
+    echo $this->usermenu;
+    
+    echo $this->accordionContainer()->captureEnd('main-menu');
+
+    echo $this->contentPane()->captureEnd('leftPane');
+
+    $this->contentPane()->captureStart('contentPane',
+                                       array('region' => 'center'),
+                                       array());
+
+    echo $this->layout()->content;
+
+    echo $this->contentPane()->captureEnd('contentPane');
+
+    $data = $this->borderContainer()->captureEnd('masterLayout');
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<?php echo $this->headTitle(); ?>
+<?php 
+    $this->headLink()
+            ->prependStylesheet($this->baseUrl().'/public/css/global.css')
+            //->appendStylesheet('/css/ui-lightness_1.7.3/jquery-ui-1.7.3.custom.css')
+            //->appendStylesheet($this->baseUrl().'/public/css/ui-lightness/jquery-ui-1.8.16.custom.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/smoothness/jquery-ui-1.8.4.custom.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/jquery.dataTables_themeroller.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/dcaccordion.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/skins/blue.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/skins/grey.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/skins/graphite.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/skins/clean.css')
+            ->appendStylesheet($this->baseUrl().'/public/css/ui.jqgrid.css');
+    
+    $this->headScript()->appendFile($this->baseUrl().'/public/js/jquery.js');
+    $this->headScript()->appendFile($this->baseUrl().'/public/js/jquery-ui-timepicker-addon.js');
+    $this->headScript()->appendFile($this->baseUrl().'/public/js/grid.locale-en.js');
+    $this->headScript()->appendFile($this->baseUrl().'/public/js/jquery.dataTables.js');
+    $this->headScript()->appendFile($this->baseUrl().'/public/js/jquery.cookie.js');
+    $this->headScript()->appendFile($this->baseUrl().'/public/js/jquery.hoverIntent.minified.js');
+    $this->headScript()->appendFile($this->baseUrl().'/public/js/jquery.dcjqaccordion.2.7.min.js');
+?>
+
+<?php echo $this->headLink(); ?>
+<?php if ($this->dojo()->isEnabled()){
+    $this->dojo()->setLocalPath($this->baseUrl().'/public/js/dojo/dojo.js')
+                 ->addStyleSheetModule('dijit.themes.claro');
+    echo $this->dojo();
+   }
+?>
+<?php echo $this->headScript(); ?>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var oTable = $('.table1').dataTable( {
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        } );
+    } );
+</script>
+<script type="text/javascript">
+$(document).ready(function($){              
+    $('#accordion-3').dcAccordion({
+        eventType: 'click',
+        autoClose: false,
+        saveState: false,
+        disableLink: false,
+        showCount: false,
+        speed: 'fast'
+    });
+});
+</script>
+<meta http-equiv="Expires" content="Fri, Jan 01 1900 00:00:00 GMT">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Lang" content="en">
+<meta name="author" content="">
+<meta http-equiv="Reply-to" content="@.com">
+<meta name="generator" content="PhpED 5.8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="creation-date" content="01/01/2009">
+<meta name="revisit-after" content="15 days">
+</head>
+<body class="claro">
+    <?php echo $data; ?>
+</body>
+</html>

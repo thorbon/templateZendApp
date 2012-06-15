@@ -1,0 +1,55 @@
+<div>
+    <?php
+        $script = '$(function(){
+                    $("#example5").datetimepicker({
+                        showSecond: true,
+                        timeFormat: "hh:mm:ss",
+                        dateFormat: "yy-mm-dd"
+                    });})';
+        
+        $this->headScript()->appendScript($script, $type = 'text/javascript');
+    ?>
+    <?php if(isset($this->incomingMessages)): ?>
+    <table style="border: 1px solid black;">
+        <tr>
+            <th>Short Code</th>
+            <th>MSISDN</th>
+            <th>Message Received</th>
+            <th>Message Sent</th>
+            <th>Mesage Source</th>
+            <th>Date Received</th>
+        </tr>
+        <?php foreach($this->incomingMessages as $message): ?>
+        <tr>
+            <td><?php echo $message['normalized_short_code']; ?></td>
+            <td><?php echo $message['normalized_msisdn']; ?></td>
+            <td><?php echo $message['message_received']; ?></td>
+            <td><?php echo $message['message_sent']; ?></td>
+            <td><?php echo $message['message_source']; ?></td>
+            <td><?php echo $message['date_received']; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php else: ?>
+        <p>No data found.</p>
+    <?php endif; ?>
+</div>
+<div>
+    <p>
+    Enter search criteria:
+    <?php
+        echo $this->autoComplete('client', '', array('source' => $this->baseUrl().'/web/index/findclient'));
+        
+        $datePickerOptions = array(
+                                    'dateFormat' => 'yy-mm-dd',
+                                    'changeMonth' => true,
+                                    'changeYear' => true
+                                    );
+        echo $this->datePicker('dp1', '', $datePickerOptions);
+    ?>
+    </p>
+    <p>
+        Pick your date:
+        <input type="text" name="example5" id="example5" value="" /> 
+    </p>
+</div>

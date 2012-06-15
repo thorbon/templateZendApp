@@ -1,0 +1,37 @@
+<h3>Client Messages</h3>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display table1" id="table1" width="100%">
+    <thead>
+        <tr>
+            <th>Client Name</th>
+            <th>Country Name</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+
+<?php if (!empty($this->adClientList)): ?>
+    <?php foreach($this->adClientList as $ad): ?>
+        <tr class="odd">
+            <td><?php echo "<a href='#'>".$ad['client_name']."</a>" ?></td>
+            <td><?php echo $ad['country_name'] ?></td>
+            <td><?php echo "<a href='#'>".$ad['message']."</a>" ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+    </table>
+<?php else: ?>
+        <tr>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+            <td>No Data Found</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    </table>
+<?php endif; ?>
+
+<?php if(isset($this->errorMessage)): ?>
+    <h2><?php echo $this->errorMessage ?></h2>
+<?php endif; ?>

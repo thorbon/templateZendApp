@@ -1,0 +1,46 @@
+body {
+    font-size: 82.5%;
+    margin: 0;
+    font-family: Verdana;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+/*  */
+ul{
+    list-style: none;
+    font-size: 10px;
+    padding-left: 0px;
+    padding-top: 10px;
+    font-weight: bold;
+    color: red;
+}
+
+#xcontainer {
+    display: table-cell;
+    height: 468px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#xinner {
+    border: 0 solid #000000;
+    height: 268px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 320px;
+}
+
+#xouter {
+    display: table;
+    height: 100%;
+    vertical-align: middle;
+    width: 100%;
+}

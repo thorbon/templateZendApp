@@ -1,0 +1,52 @@
+Executed 2 query(s) - 2011-10-29 21:20:00
+Array
+(
+    [0] => Array
+        (
+            [time] => 2011-10-29 21:20:00
+            [query] => SELECT COUNT(*) AS COUNT  FROM orders
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+    [1] => Array
+        (
+            [time] => 2011-10-29 21:20:00
+            [query] => SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders LIMIT 0, 20
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+)
+Executed 2 query(s) - 2011-10-29 21:21:36
+Array
+(
+    [0] => Array
+        (
+            [time] => 2011-10-29 21:21:36
+            [query] => SELECT COUNT(*) AS COUNT  FROM orders
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+    [1] => Array
+        (
+            [time] => 2011-10-29 21:21:36
+            [query] => SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders LIMIT 0, 20
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+)
