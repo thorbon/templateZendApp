@@ -16,3 +16,6 @@ Skeleton Zend Framework Application (version: 1.11.11) which includes the follow
 I am not an expert in any way at using the Zend Framework and there were many shortcuts taken when developing this skeleton. 
 
 So please feel free to ask questions and make adjustments where necessary so that others can benefit. 
+
+** Database/Table Creation:
+application/configs/zendapp.sql
