@@ -1,0 +1,18 @@
+Skeleton Zend Framework Application (version: 1.11.11) which includes the following:
+
+- ACL configuration using a MySQL database to store access rules and permissions.
+  - supports inheritance
+  - fine grained access to controller actions by group or individual
+- Authentication which works with ACL
+  - username and password login
+  - Password salt used to create a more secure password
+  - Forgot password action (action created but not implemented in GUI)
+- Implementation of Zend Dojo Container object for page layout
+- Implementation of Zend Dojo Forms
+- Implementation of JQuery for menus and data tables
+- Implementation of MySQL Database access with example queries
+- Implementation of Zend Framework Modular configuration
+
+I am not an expert in any way at using the Zend Framework and there were many shortcuts taken when developing this skeleton. 
+
+So please feel free to ask questions and make adjustments where necessary so that others can benefit. 
